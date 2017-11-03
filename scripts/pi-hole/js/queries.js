@@ -1,7 +1,7 @@
 /* Pi-hole: A black hole for Internet advertisements
 *  (c) 2017 Pi-hole, LLC (https://pi-hole.net)
 *  Network-wide ad blocking via your own hardware.
-*
+* 
 *  This file is copyright under the latest version of the EUPL.
 *  Please see LICENSE file for your rights under this license. */
 var tableApi;
@@ -126,6 +126,8 @@ $(document).ready(function() {
     }
 
     tableApi = $("#all-queries").DataTable( {
+        "lengthMenu": [[10, 25, 50, 100, 500, 1000, -1], [10, 25, 50, 100, 500, 1000, "All"]],
+        "pageLength": 50,
         "rowCallback": function( row, data, index ){
             if (data[4] === "1")
             {
@@ -173,15 +175,13 @@ $(document).ready(function() {
         "processing": true,
         "order" : [[0, "desc"]],
         "columns": [
-            { "width" : "20%", "render": function (data, type, full, meta) { if(type === "display"){return moment.unix(data).format("Y-MM-DD HH:mm:ss z");}else{return data;} }},
-            { "width" : "10%" },
-            { "width" : "40%" },
-            { "width" : "10%" },
-            { "width" : "10%" },
+            { "width" : "16%", "render": function (data, type, full, meta) { if(type === "display"){return moment.unix(data).format("Y-MM-DD HH:mm:ss z");}else{return data;} }},
+            { "width" : "7%" },
+            { "width" : "35%" },
+            { "width" : "12%" },
+            { "width" : "20%" },
             { "width" : "10%" },
         ],
-        "pageLength": 50,
-        "lengthMenu": [[10, 25, 50, 100, 500, 1000, -1], [10, 25, 50, 100, 500, 1000, "All"]],
         "columnDefs": [ {
             "targets": -1,
             "data": null,
