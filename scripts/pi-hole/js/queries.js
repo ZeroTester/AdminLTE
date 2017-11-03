@@ -126,8 +126,6 @@ $(document).ready(function() {
     }
 
     tableApi = $("#all-queries").DataTable( {
-        "lengthMenu": [[10, 25, 50, 100, 500, 1000, -1], [10, 25, 50, 100, 500, 1000, "All"]],
-        "pageLength": 50,
         "rowCallback": function( row, data, index ){
             if (data[4] === "1")
             {
@@ -182,6 +180,8 @@ $(document).ready(function() {
             { "width" : "20%" },
             { "width" : "10%" },
         ],
+        "lengthMenu": [[10, 25, 50, 100, 500, 1000, -1], [10, 25, 50, 100, 500, 1000, "All"]],
+        "pageLength": 50,
         "columnDefs": [ {
             "targets": -1,
             "data": null,
